@@ -1,19 +1,21 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: black;
-    color: white;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    text-align: center;
 }
 
 .container {
-    max-width: 800px;
-    padding: 20px;
+    text-align: center;
 }
 
 h1 {
@@ -25,14 +27,15 @@ h1 {
     display: inline-block;
     background-color: white;
     color: black;
-    padding: 12px 24px;
-    font-size: 1.2rem;
+    padding: 15px 30px;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
 }
 
 .button:hover {
+    background-color: #f0f0f0;
     transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
