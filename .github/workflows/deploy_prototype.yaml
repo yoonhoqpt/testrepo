@@ -26,16 +26,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          path: ${{ env.DEPLOY_FOLDER }}
-      
-      - name: Debug directory contents
-        run: |
-          echo "Current directory: $PWD"
-          echo "Listing root directory:"
-          ls -la
-          echo "Listing target directory:"
-          ls -la ${{ env.DEPLOY_FOLDER }}
 
       - name: Install Skaffold
         run: |
@@ -51,6 +41,11 @@ jobs:
       - name: Configure Docker for GCP
         run: |
           gcloud auth configure-docker us-west1-docker.pkg.dev
+
+      - name: Prepare source directory
+        run: |
+          mkdir -p src
+          cp -r ${{ inputs.target_folder_name }}/* src/
 
       - name: Building
         working-directory: ${{ env.DEPLOY_FOLDER }}
