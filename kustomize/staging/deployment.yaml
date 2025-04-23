@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prototype
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prototype
+  template:
+    metadata:
+      labels:
+        app: prototype
+    spec:
+      containers:
+        - name: prototype
+          image: us-west1-docker.pkg.dev/dl-sre-staging/demo/prototype
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: PORT
+              value: "80"
