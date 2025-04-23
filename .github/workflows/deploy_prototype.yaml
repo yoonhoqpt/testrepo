@@ -48,5 +48,4 @@ jobs:
           cp -r ${{ inputs.target_folder_name }}/* src/
 
       - name: Building
-        working-directory: ${{ env.DEPLOY_FOLDER }}
-        run: skaffold build -f ./skaffold.yaml -p local
+        run: skaffold build -f skaffold.yaml -p local
