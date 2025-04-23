@@ -29,11 +29,12 @@ jobs:
         with:
           path: ${{ env.DEPLOY_FOLDER }}
       
+      - name: Install Skaffold
+        run: |
+          curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
+          sudo install skaffold /usr/local/bin/
+          rm skaffold
+
       - name: Building
-        uses: dapperlabs/actions/skaffold@v0.1.12
-        with:
-          skaffold_action: build
-          skaffold_file: ./skaffold.yaml
-          skaffold_profile: local
-          deployment_check: false
-          working_directory: ${{ env.DEPLOY_FOLDER }}
+        working-directory: ${{ env.DEPLOY_FOLDER }}
+        run: skaffold build -f ./skaffold.yaml -p local
