@@ -1,103 +1,231 @@
-/* style.css */
-
+/* General Styles */
 body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #f4f4f4;
     color: #333;
 }
 
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header Styles */
 header {
-    background-color: #003262; /* MLB Navy */
-    color: white;
-    padding: 20px;
-    text-align: center;
+    background: #003262; /* MLB navy blue */
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 header h1 {
+    float: left;
+}
+
+header nav {
+    float: right;
+    margin-top: 10px;
+}
+
+header nav ul {
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.hero {
-    background-color: #fff;
-    padding: 40px;
-    text-align: center;
+header nav li {
+    display: inline;
+    padding: 0 20px;
 }
 
-.hero-content h2 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.hero-content p {
-    font-size: 1.2em;
-    line-height: 1.6;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #d50032; /* MLB Red */
-    color: white;
+header nav a {
+    color: #fff;
     text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header nav a:hover {
+    color: #ffc425; /* MLB gold */
+}
+
+.button {
+    background: #ffc425; /* MLB gold */
+    color: #003262; /* MLB navy blue */
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
-    margin-top: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.featured-moments {
-    padding: 40px;
+.button:hover {
+    background: #f0b400;
+}
+
+/* Hero Section Styles */
+#hero {
+    background: url(hero-background.jpg) no-repeat center/cover; /* Replace with actual image */
+    height: 500px;
     text-align: center;
+    color: #fff;
+    padding-top: 100px;
 }
 
-.moments-grid {
+#hero .hero-content {
+    padding-top: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+#hero h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* How It Works Styles */
+#how-it-works {
+    padding: 50px 0;
+}
+
+#how-it-works h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#how-it-works .steps {
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.moment-card {
-    width: 300px;
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.moment-card img {
-    width: 100%;
-    height: auto;
-}
-
-.moment-card h3 {
-    padding: 10px;
-    margin: 0;
-    font-size: 1.2em;
-}
-
-.moment-card p {
-    padding: 0 10px 20px;
-    margin: 0;
-    line-height: 1.4;
-}
-
-footer {
-    background-color: #003262; /* MLB Navy */
-    color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .moments-grid {
-        flex-direction: column;
-        align-items: center;
+#how-it-works .step {
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#how-it-works .step i {
+    margin-bottom: 20px;
+    color: #003262; /* MLB navy blue */
+}
+
+/* Featured Moments Styles */
+#featured-moments {
+    background: #fff;
+    padding: 50px 0;
+}
+
+#featured-moments h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#featured-moments .moments {
+    display: flex;
+    justify-content: space-around;
+}
+
+#featured-moments .moment {
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Recent Drops Styles */
+#recent-drops {
+    padding: 50px 0;
+}
+
+#recent-drops h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#recent-drops .drops {
+    display: flex;
+    justify-content: space-around;
+}
+
+#recent-drops .drop {
+    width: 45%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Footer Styles */
+footer {
+    background: #003262; /* MLB navy blue */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Media Queries for Responsive Design */
+@media(max-width: 768px) {
+    header h1 {
+        float: none;
+        text-align: center;
     }
 
-    .moment-card {
+    header nav {
+        float: none;
+        text-align: center;
+    }
+
+    header nav li {
+        display: block;
+        padding: 10px 0;
+    }
+
+    #hero {
+        height: auto;
+        padding-top: 50px;
+    }
+
+    #hero .hero-content {
+        width: 100%;
+    }
+
+    #how-it-works .steps {
+        flex-direction: column;
+    }
+
+    #how-it-works .step {
         width: 80%;
+        margin-bottom: 20px;
+    }
+
+    #featured-moments .moments {
+        flex-direction: column;
+    }
+
+    #featured-moments .moment {
+        width: 80%;
+        margin: 0 auto 20px;
+    }
+
+    #recent-drops .drops {
+        flex-direction: column;
+    }
+
+    #recent-drops .drop {
+        width: 80%;
+        margin: 0 auto 20px;
     }
 }
