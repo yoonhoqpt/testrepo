@@ -1,26 +1,8 @@
 apiVersion: skaffold/v3
 kind: Config
 metadata:
-  name: mcpbot
+  name: prototype
 profiles:
-- name: services-staging
-  build:
-    googleCloudBuild:
-      projectId: dl-sre-staging
-      kanikoImage: gcr.io/kaniko-project/executor
-      machineType: N1_HIGHCPU_8
-    tagPolicy:
-      gitCommit: {}
-    artifacts:
-      - image: us-west1-docker.pkg.dev/dl-sre-staging/demo/mcpbot
-        context: .  # Update to point to root of project
-        kaniko:
-          dockerfile: Dockerfile  # Update to correct path
-          buildArgs:
-            SERVICE_DIR: mcpbot
-          cache:
-            ttl: 24h
-            repo: us-west1-docker.pkg.dev/dl-sre-staging/demo/mcpbot
 - name: local
   build:
     local:
@@ -28,9 +10,7 @@ profiles:
     tagPolicy:
       gitCommit: {}
     artifacts:
-      - image: us-west1-docker.pkg.dev/dl-sre-staging/demo/mcpbot
+      - image: us-west1-docker.pkg.dev/dl-sre-staging/demo/prototype
         context: .
         docker:
           dockerfile: Dockerfile
-          buildArgs:
-            SERVICE_DIR: mcpbot

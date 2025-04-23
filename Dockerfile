@@ -1,19 +1,20 @@
-FROM python:3.13-slim
-WORKDIR /app
+FROM nginx:alpine
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+WORKDIR /usr/share/nginx/html
 
-RUN adduser --disabled-password --gecos "" myuser && \
-    chown -R myuser:myuser /app
+# Copy HTML and CSS files
+COPY *.html .
+COPY *.css .
 
-COPY . .
+# Use nginx with non-root user for better security
+RUN chown -R nginx:nginx /usr/share/nginx/html && \
+    chmod -R 755 /usr/share/nginx/html
 
-USER myuser
+# Switch to non-root user
+USER nginx
 
-ENV PATH="/home/myuser/.local/bin:$PATH"
+# Nginx runs on port 80 by default
+EXPOSE 80
 
-ARG SERVICE_NAME
-ENV SERVICE_NAME=${SERVICE_NAME}
-
-CMD ["sh", "-c", "python3 ${SERVICE_NAME}.py"]
+# Use default nginx command
+CMD ["nginx", "-g", "daemon off;"]
