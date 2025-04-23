@@ -2,9 +2,8 @@ FROM nginx:alpine
 
 WORKDIR /usr/share/nginx/html
 
-# Copy HTML and CSS files
-COPY *.html .
-COPY *.css .
+# Copy HTML and CSS files from the current directory
+COPY . .
 
 # Use nginx with non-root user for better security
 RUN chown -R nginx:nginx /usr/share/nginx/html && \
