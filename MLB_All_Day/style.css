@@ -7,222 +7,321 @@ body {
     color: #333;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+.drop-image-placeholder, .step-icon-placeholder, .news-image-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 200px;
+    color: #888;
 }
 
-.btn {
-    background-color: #003262; /* MLB Navy */
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+a {
+    color: #007bff;
     text-decoration: none;
-    display: inline-block;
 }
 
-.btn:hover {
-    background-color: #BA090D; /* MLB Red */
+a:hover {
+    text-decoration: underline;
 }
 
 /* Header Styles */
 header {
-    background: #fff;
-    color: #333;
-    padding-top: 20px;
-    min-height: 70px;
-    border-bottom: 3px solid #BA090D; /* MLB Red */
+    background-color: #fff;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-header a {
-    color: #333;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
+header .logo {
+    font-size: 1.5em;
+    color: #003262; /* Dodger Blue - Example MLB Color */
+    font-weight: bold;
 }
 
-header ul {
-    margin: 0;
-    padding: 0;
-}
-
-header li {
-    float: left;
-    display: inline;
+header nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 20px;
+
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-.logo h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #003262; /* MLB Navy */
-}
-
-.nav-links {
+header nav ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    align-items: center;
 }
 
-.nav-links li {
-    margin-left: 20px;
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #333;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #007bff;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.login-button, .sign-up-button {
+    background-color: transparent;
+    border: 1px solid #007bff;
+    color: #007bff;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sign-up-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.login-button:hover, .sign-up-button:hover {
+    background-color: #0056b3;
+    color: white;
 }
 
 /* Hero Section Styles */
 .hero {
-    background-color: #E4002B; /* MLB Red */
-    color: #fff;
+    background-color: #f0f8ff; /* Light Blue */
+    padding: 80px 0;
     text-align: center;
-    padding: 100px 0;
 }
 
-.hero-content h1 {
-    font-size: 48px;
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3em;
     margin-bottom: 20px;
+    color: #003262; /* Dodger Blue */
 }
 
-.hero-content p {
-    font-size: 20px;
+.hero p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+}
+
+.primary-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.primary-button:hover {
+    background-color: #0056b3;
+}
+
+/* Featured Drop Styles */
+.featured-drop {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.featured-drop h2 {
+    font-size: 2em;
     margin-bottom: 30px;
 }
 
-/* Featured Drops Styles */
-.featured-drops {
-    padding: 50px 0;
-    text-align: center;
-}
-
-.drops-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.drop-card {
-    background-color: #fff;
+.drop-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 5px;
+    background-color: #fff;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.drop-card img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+.drop-image {
+    width: 400px;
+    height: 250px;
+    margin-right: 30px;
+    border-radius: 5px;
 }
 
-.drop-card h3 {
+.drop-info {
+    text-align: left;
+}
+
+.drop-info h3 {
+    font-size: 1.5em;
     margin-bottom: 10px;
-    color: #003262; /* MLB Navy */
 }
 
-/* How It Works Styles */
+.secondary-button {
+    background-color: #fff;
+    color: #007bff;
+    border: 1px solid #007bff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.secondary-button:hover {
+    background-color: #e6f2ff;
+}
+
+/* How it Works Styles */
 .how-it-works {
-    background-color: #003262; /* MLB Navy */
-    color: #fff;
+    background-color: #fff;
     padding: 50px 0;
     text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
 }
 
 .steps {
     display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .step {
-    width: 30%;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .step h3 {
-    margin-bottom: 15px;
+    font-size: 1.3em;
+    margin-bottom: 10px;
 }
 
-/* Community Styles */
-.community {
+.step p {
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Latest News Styles */
+.latest-news {
     padding: 50px 0;
     text-align: center;
+    background-color: #f0f8ff;
+}
+
+.latest-news h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.news-articles {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.news-article {
+    width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.news-article h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.news-article p {
+    color: #555;
+    line-height: 1.5;
 }
 
 /* Footer Styles */
 footer {
-    background-color: #333;
+    background-color: #003262; /* Dodger Blue */
     color: #fff;
-    text-align: center;
     padding: 20px 0;
+    text-align: center;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-.footer-links li {
-    margin-left: 20px;
+    margin-bottom: 10px;
 }
 
 .footer-links a {
     color: #fff;
-    text-decoration: none;
+    margin: 0 10px;
 }
 
-/* Responsive Design */
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    .navbar {
+    header nav {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .logo {
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
         margin-bottom: 10px;
     }
 
-    .nav-links {
+    .drop-details {
         flex-direction: column;
-        align-items: flex-start;
     }
 
-    .nav-links li {
-        margin: 10px 0;
+    .drop-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
     }
 
     .steps {
         flex-direction: column;
     }
 
-    .step {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .footer-content {
+    .news-articles {
         flex-direction: column;
     }
 
-    .footer-links {
-        margin-top: 10px;
-    }
-
-    .footer-links li {
-        margin: 0 10px;
+    .news-article {
+        width: 100%;
     }
 }
