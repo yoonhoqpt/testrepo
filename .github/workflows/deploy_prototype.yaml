@@ -35,6 +35,15 @@ jobs:
           sudo install skaffold /usr/local/bin/
           rm skaffold
 
+      - name: Auth to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+          
+      - name: Configure Docker for GCP
+        run: |
+          gcloud auth configure-docker us-west1-docker.pkg.dev
+
       - name: Building
         working-directory: ${{ env.DEPLOY_FOLDER }}
         run: skaffold build -f ./skaffold.yaml -p local
