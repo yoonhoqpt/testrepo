@@ -29,6 +29,14 @@ jobs:
         with:
           path: ${{ env.DEPLOY_FOLDER }}
       
+      - name: Debug directory contents
+        run: |
+          echo "Current directory: $PWD"
+          echo "Listing root directory:"
+          ls -la
+          echo "Listing target directory:"
+          ls -la ${{ env.DEPLOY_FOLDER }}
+
       - name: Install Skaffold
         run: |
           curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
