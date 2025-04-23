@@ -1,15 +1,8 @@
+# Use the official Nginx image
 FROM nginx:alpine
 
-# Create required directories and set permissions
-RUN mkdir -p /var/cache/nginx && \
-    chown -R nginx:nginx /var/cache/nginx /var/run /usr/share/nginx/html
+# Copy your static files into the Nginx HTML directory
+COPY . /usr/share/nginx/html
 
-# Copy files after setting permissions
-COPY . /usr/share/nginx/html/
-
-# Switch to non-root user
-USER nginx
-
+# Expose port 80
 EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
