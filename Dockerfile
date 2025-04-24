@@ -7,8 +7,11 @@ WORKDIR /app
 # Initialize a new package.json if it doesn't exist
 RUN npm init -y
 
+# Add build script to package.json
+RUN npm pkg set scripts.build="react-scripts build"
+
 # Install required dependencies
-RUN npm install react react-dom react-scripts
+RUN npm install react react-scripts
 
 # Copy all source files
 COPY . .
