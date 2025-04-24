@@ -46,6 +46,8 @@ jobs:
         run: |
           mkdir -p src
           cp -r ${{ inputs.target_folder_name }}/* src/
+          echo "Contents of src directory:"
+          ls -la src/
 
       - name: Building
         run: skaffold build -f skaffold.yaml -p local
