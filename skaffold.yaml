@@ -7,8 +7,9 @@ profiles:
   build:
     local:
       useBuildkit: true
+      push: true
     artifacts:
-      - image: prototype
+      - image: us-west1-docker.pkg.dev/dl-sre-staging/demo/prototype
         context: src
         docker:
           dockerfile: Dockerfile
