@@ -1,0 +1,40 @@
+.featured-moments {
+  padding: 2rem 0;
+}
+
+.moments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.moment-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.moment-card h3 {
+  color: #034a94; /* Mariners navy */
+  margin-bottom: 0.5rem;
+}
+
+.moment-card p {
+  color: #666;
+}
+
+.moment-card button {
+  background-color: #C41E3A; /* Cardinals red */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.moment-card button:hover {
+  background-color: #A71930; /* Cardinals darker red */
+}
