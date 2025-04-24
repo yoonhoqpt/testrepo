@@ -1,0 +1,28 @@
+.header {
+  background-color: #032c5b; /* MLB Primary Blue */
+  color: white;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+.connect-wallet {
+  background-color: #d11a2b; /* MLB Primary Red */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
