@@ -4,26 +4,30 @@ FROM node:18-alpine as build
 # Set working directory
 WORKDIR /app
 
-# Copy package files from the root of the project
-COPY package*.json ./
+# Initialize a new package.json if it doesn't exist
+RUN npm init -y
 
-# Install dependencies
-RUN npm install
+# Install required dependencies
+RUN npm install react react-dom react-scripts
 
-# Copy the entire project (including MLB All Day directory)
-COPY . ./
+# Copy all source files
+COPY . .
 
-# Build the React app
+# Create a src directory and copy source files into it
+RUN mkdir -p src && \
+    find . -maxdepth 1 -type f -name "*.js" -exec mv {} src/ \; || true
+
+# Build the application
 RUN npm run build
 
-# Serve stage
+# Production stage
 FROM nginx:alpine
 
-# Copy the built files from build stage to nginx
+# Copy built assets from build stage
 COPY --from=build /app/build /usr/share/nginx/html
-
-# Optional: Copy custom nginx configuration if needed
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
 EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
