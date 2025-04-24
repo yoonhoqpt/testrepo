@@ -4,13 +4,13 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 
 # Copy package files
-COPY package*.json ./
+COPY src/package*.json ./
 
 # Install dependencies
 RUN npm ci
 
-# Copy all other source files
-COPY . .
+# Copy all other source files (updated path)
+COPY src/. .
 
 # Build the application
 RUN npm run build
