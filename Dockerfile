@@ -1,29 +1,12 @@
-# Build stage
-FROM node:18-alpine as build
-
-# Set working directory
-WORKDIR /app
-
-# Copy source files from src directory
-COPY src/ .
-
-# Install dependencies
-RUN npm install
-
-# Build the application
-RUN npm run build
-
-# Production stage
+# Use the official Nginx image as the base
 FROM nginx:alpine
 
-# Copy built assets from build stage
-COPY --from=build /app/build /usr/share/nginx/html
+# Create the directory structure if it doesn't exist
+RUN mkdir -p /usr/share/nginx/html
 
-# Copy nginx configuration (optional)
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy files individually to ensure proper placement
+COPY src/index.html /usr/share/nginx/html/
+COPY src/style.css /usr/share/nginx/html/
 
-# Expose port 80
+# Expose port 80 (optional, for documentation)
 EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
