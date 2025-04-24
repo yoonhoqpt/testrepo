@@ -7,8 +7,6 @@ profiles:
   build:
     local:
       useBuildkit: true
-    tagPolicy:
-      gitCommit: {}
     artifacts:
       - image: us-west1-docker.pkg.dev/dl-sre-staging/demo/prototype
         context: .
