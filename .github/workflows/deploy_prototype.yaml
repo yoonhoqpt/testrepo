@@ -51,3 +51,5 @@ jobs:
 
       - name: Building
         run: skaffold build -f skaffold.yaml -p local
+        env:
+          TARGET_FOLDER: ${{ inputs.target_folder_name }}

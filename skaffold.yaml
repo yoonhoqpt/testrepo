@@ -8,10 +8,10 @@ profiles:
     local:
       useBuildkit: true
     artifacts:
-      - image: us-west1-docker.pkg.dev/dl-sre-staging/demo/prototype
-        context: .
+      - image: prototype
+        context: src
         docker:
-          dockerfile: Dockerfile
+          dockerfile: ../{{.ENV.TARGET_FOLDER}}/Dockerfile
     tagPolicy:
       customTemplate:
         template: "latest"
