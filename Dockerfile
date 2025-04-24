@@ -16,9 +16,10 @@ RUN npm install react react-scripts
 # Copy all source files
 COPY . .
 
-# Create a src directory and copy source files into it
-RUN mkdir -p src && \
-    find . -maxdepth 1 -type f -name "*.js" -exec mv {} src/ \; || true
+# Create necessary React project structure
+RUN mkdir -p public src && \
+    echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>React App</title></head><body><div id="root"></div></body></html>' > public/index.html && \
+    echo 'import React from "react"; import ReactDOM from "react-dom/client"; const root = ReactDOM.createRoot(document.getElementById("root")); root.render(<h1>Hello, World!</h1>);' > src/index.js
 
 # Build the application
 RUN npm run build
