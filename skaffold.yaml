@@ -12,3 +12,6 @@ profiles:
         context: .
         docker:
           dockerfile: Dockerfile
+    tagPolicy:
+      customTemplate:
+        template: "latest"
