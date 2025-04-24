@@ -4,14 +4,11 @@ FROM node:18-alpine as build
 # Set working directory
 WORKDIR /app
 
-# Copy package files
-COPY package.json package-lock.json ./
+# Copy entire source first to ensure package files are available
+COPY . .
 
 # Install dependencies
 RUN npm install
-
-# Copy source code
-COPY . .
 
 # Build the application
 RUN npm run build
