@@ -1,0 +1,18 @@
+.footer {
+  background-color: #032c5b; /* MLB Primary Blue */
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+}
