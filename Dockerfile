@@ -4,8 +4,8 @@ FROM node:18-alpine as build
 # Set working directory
 WORKDIR /app
 
-# Copy entire source first to ensure package files are available
-COPY . .
+# Copy source files from src directory
+COPY src/ .
 
 # Install dependencies
 RUN npm install
