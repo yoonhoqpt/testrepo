@@ -1,12 +1,29 @@
-# Use the official Nginx image as the base
+# Build stage
+FROM node:18-alpine as build
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files from the root of the project
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the entire project (including MLB All Day directory)
+COPY . ./
+
+# Build the React app
+RUN npm run build
+
+# Serve stage
 FROM nginx:alpine
 
-# Create the directory structure if it doesn't exist
-RUN mkdir -p /usr/share/nginx/html
+# Copy the built files from build stage to nginx
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Copy files individually to ensure proper placement
-COPY src/index.html /usr/share/nginx/html/
-COPY src/style.css /usr/share/nginx/html/
+# Optional: Copy custom nginx configuration if needed
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80 (optional, for documentation)
+# Expose port 80
 EXPOSE 80
