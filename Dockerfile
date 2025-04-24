@@ -1,25 +1,40 @@
 # Build stage
-FROM node:18-alpine as build
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Initialize a new package.json
-RUN npm init -y
+# Copy package files
+COPY package*.json ./
 
-# Install only the necessary dependency (React)
-RUN npm install react
+# Install dependencies
+RUN npm ci
 
-# Copy your JS and CSS files
+# Copy all other source files
 COPY . .
 
+# Build the application
+RUN npm run build
+
 # Production stage
-FROM nginx:alpine
+FROM node:18-alpine AS runner
 
-# Copy all static files to nginx
-COPY --from=build /app /usr/share/nginx/html
+WORKDIR /app
 
-# Expose port 80
-EXPOSE 80
+# Set environment to production
+ENV NODE_ENV=production
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Copy necessary files from builder
+COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
+# Install only production dependencies
+RUN npm ci --only=production
+
+# Expose the port Next.js uses
+EXPOSE 3000
+
+# Start the application
+CMD ["node", "server.js"]
