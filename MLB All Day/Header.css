@@ -1,0 +1,33 @@
+.header {
+  background-color: #032c54; /* MLB navy blue */
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.navigation a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.sign-up-button {
+  background-color: #d11a2a; /* MLB red */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.sign-up-button:hover {
+  background-color: #b00f1e; /* Darker red on hover */
+}
