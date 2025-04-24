@@ -1,0 +1,24 @@
+.how-it-works {
+  padding: 2rem 0;
+  background-color: #eee;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.step {
+  text-align: center;
+  width: 30%;
+}
+
+.step h3 {
+  color: #002D72; /* Yankees navy */
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  color: #666;
+}
